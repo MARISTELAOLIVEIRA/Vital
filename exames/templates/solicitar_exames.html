@@ -36,9 +36,9 @@
 
             <div class="col-md card">
     
-{% if solicitacao_exames %}
+    {% if solicitacao_exames %}
 
-    {% for exame in solicitacao_exames %}
+        {% for exame in solicitacao_exames %}
         <div style="font-size: 20px; font-weight: bold">
             {% if exame.disponivel %}
                 <img src="{% static 'geral/img/check.png' %}">
@@ -50,7 +50,7 @@
                 {{exame.preco}}
             </span>
         </div>
-    {% endfor %}
+        {% endfor %}
     
     <hr style="color: white;">
     <div>
@@ -61,7 +61,7 @@
     <h5>Data: 08 de Setembro</h5>
     <br>
 
-    <form action="{% url "fechar_pedido" %}" method="POST">{% csrf_token %}
+    <form action="{% url 'fechar_pedido' %}" method="POST">{% csrf_token %}
         {% for exame in solicitacao_exames  %}
             <input type="hidden" value="{{exame.id}}" name="exames">
         {% endfor %}

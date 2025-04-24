@@ -25,21 +25,21 @@
                 <hr>
                 <br>
                 {% for exame in exames  %}
-    {% if  exame.exame.tipo == 'S'%}
+                    {% if  exame.exame.tipo == 'S'%}
         <div class="row">
             <div class="col-md"><h3>{{exame.exame.nome}}</h3></div>
             <div class="col-md">{{exame.badge_template}}</div>
             <div class="col-md">
-                {% if exame.status == 'F' %}
+                    {% if exame.status == 'F' %}
                     <a href="{% url "permitir_abrir_exame" exame.id %}" class="btn btn-light">Abrir</a>
-                {% else %}
+                    {% else %}
                     <a href="#" class="btn btn-light disabled">Abrir</a>
-                {% endif %}
+                    {% endif %}
             </div>
         </div>
         <br>
-    {% endif %}
-{% endfor %}
+            {% endif %}
+        {% endfor %}
             </div>
             <br>
             <br>
@@ -47,17 +47,17 @@
                 <h3>Exames de imagem</h3>
                 <hr>
                 <br>
-                {% for exame in exames  %}
+{% for exame in exames  %}
     {% if  exame.exame.tipo == 'I'%}
         <div class="row">
             <div class="col-md"><h3>{{exame.exame.nome}}</h3></div>
             <div class="col-md">{{exame.badge_template}}</div>
             <div class="col-md">
-                {% if exame.status == 'F' %}
-                    <a href="{% url "permitir_abrir_exame" exame.id %}" class="btn btn-light">Abrir</a>
-                {% else %}
+            {% if exame.status == 'F' %}
                 <a href="{% url 'permitir_abrir_exame' exame.id %}" class="btn btn-light">Abrir</a>
-                {% endif %}
+            {% else %}
+                <a href="#" class="btn btn-light disabled">Abrir</a>
+            {% endif %}
         </div>
         <br>
     {% endif %}

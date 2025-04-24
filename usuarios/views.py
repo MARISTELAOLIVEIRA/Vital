@@ -49,10 +49,15 @@ def cadastro(request):
             messages.add_message(request, constants.ERROR, 'Usuário já cadastrado, tente outro')  
             return redirect('cadastro')
 
-
+        messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso! Efetue o login') 
         return render(request, 'login.html')
 
 def logar(request):
+    # Se o usuário for superusuário, redireciona para a página de admin
+    if request.user.is_superuser:
+        return redirect('admin')
+    
+    # Se o usuário estiver autenticado, redireciona para a home
     if request.user.is_authenticated:
         return redirect('/')
     

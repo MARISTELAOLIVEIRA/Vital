@@ -1,10 +1,10 @@
-from django.shortcuts import render
+import datetime
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import TiposExames, PedidosExames, SolicitacaoExame, AcessoMedico
-from django.shortcuts import redirect
-from datetime import datetime
 from django.contrib import messages
-from django.contrib import messages as constants
+from django.contrib.messages import constants
+
 
 @login_required
 def solicitar_exames(request):
@@ -29,7 +29,7 @@ def fechar_pedido(request):
 
     pedido_exame = PedidosExames(
         usuario = request.user,
-        data = datetime.now()
+        data = datetime.datetime.now()
     )
 
     pedido_exame.save()
@@ -46,7 +46,7 @@ def fechar_pedido(request):
     pedido_exame.save()
 
     messages.add_message(request, constants.SUCCESS, 'Pedido de exame concluído com sucesso')
-    return redirect('ver_pedidos/')
+    return redirect('gerenciar_pedidos')
 
 @login_required
 def gerenciar_pedidos(request):
@@ -59,12 +59,12 @@ def cancelar_pedido(request, pedido_id):
 
     if not pedido.usuario == request.user:
         messages.add_message(request, constants.ERROR, 'Esse pedido não é seu')
-        return redirect('gerenciar_pedidos/')
+        return redirect('gerenciar_pedidos')
 
     pedido.agendado = False
     pedido.save()
     messages.add_message(request, constants.SUCCESS, 'Pedido excluido com sucesso')
-    return redirect('gerenciar_pedidos/')
+    return redirect('gerenciar_pedidos')
 
 @login_required
 def gerenciar_exames(request):
@@ -81,7 +81,9 @@ def permitir_abrir_exame(request, exame_id):
         return redirect(exame.resultado.url)
 
     else: 
-        return redirect(f'/solicitar_senha_exame/{exame.id}')
+        return redirect(f'/exames/solicitar_senha_exame/{exame.id}')
+
+
     
 @login_required
 def solicitar_senha_exame(request, exame_id):
@@ -95,7 +97,8 @@ def solicitar_senha_exame(request, exame_id):
             return redirect(exame.resultado.url)
         else:
             messages.add_message(request, constants.ERROR, 'Senha inválida')
-            return redirect(f'/solicitar_senha_exame/{exame.id}')
+            return redirect(f'/exames/solicitar_senha_exame/{exame.id}')
+        
 
 @login_required
 def gerar_acesso_medico(request):
@@ -114,7 +117,7 @@ def gerar_acesso_medico(request):
             tempo_de_acesso = tempo_de_acesso,
             data_exames_iniciais = data_exame_inicial,
             data_exames_finais = data_exame_final,
-            criado_em = datetime.now()
+            criado_em = datetime.datetime.now()
         )
 
         acesso_medico.save()
