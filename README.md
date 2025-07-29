@@ -2,10 +2,8 @@
 
 Sistema de Gerenciamento de Exames Médicos
 
-![Logo Vital](static/geral/img/logo.png)
-
 ### Tela Inicial
-![Tela Inicial](static/geral/img/tela1.png)
+![Captura](https://github.com/MARISTELAOLIVEIRA/Vital/blob/main/templates/static/img/Captura.png?raw=true)
 
 ## Sobre o Projeto
 
