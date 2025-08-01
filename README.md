@@ -76,6 +76,7 @@ db.sqlite3
 ![Captura5](https://raw.githubusercontent.com/MARISTELAOLIVEIRA/Vital/main/templates/static/img/Captura5.png)
 ![Captura6](https://raw.githubusercontent.com/MARISTELAOLIVEIRA/Vital/main/templates/static/img/Captura6.png)
 ![Captura7](https://raw.githubusercontent.com/MARISTELAOLIVEIRA/Vital/main/templates/static/img/Captura7.png)
+![Captura8](https://raw.githubusercontent.com/MARISTELAOLIVEIRA/Vital/main/templates/static/img/Captura8.png)
 
 
 ## Contribuição
