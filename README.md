@@ -3,7 +3,7 @@
 Sistema de Gerenciamento de Exames Médicos
 
 ### Tela Inicial
-![Captura](https://github.com/MARISTELAOLIVEIRA/Vital/blob/main/templates/static/img/Captura.png?raw=true)
+![Captura](https://raw.githubusercontent.com/MARISTELAOLIVEIRA/Vital/main/templates/static/img/Captura.png)
 
 ## Sobre o Projeto
 
